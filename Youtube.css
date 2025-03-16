@@ -1,0 +1,180 @@
+/* ==UserStyle==
+@name         Youtube Rhyru9 (Improved Transparency)
+@namespace    USO Archive
+@author       RHYRU9
+@description  A custom Youtubetheme with enhanced transparency
+@version      20250316.00.04
+@license      https://creativecommons.org/licenses/by/4.0/deed.en
+@preprocessor uso
+==/UserStyle== */
+@-moz-document domain("youtube.com"),
+domain("googlevideo.com"),
+domain("ggpht.com"),
+regexp("https?://([^/]*\.)?youtube\..*"),
+regexp("https?://([^/]*\.)?googlevideo\..*"),
+regexp("https?://([^/]*\.)?ggpht\..*") {
+    /* --- Background Global Lebih Transparan --- */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url("https://w.wallhaven.cc/full/5g/wallhaven-5ge715.jpg") no-repeat center center fixed !important;
+        background-size: cover !important;
+        z-index: -1 !important;
+        opacity: 0.85 !important;
+    }
+
+
+    /* --- Sidebar, Header, dan Content Lebih Ringan --- */
+    #content,
+    ytd-app,
+    ytd-page-manager,
+    .ytd-popup-container,
+    ytd-masthead,
+    ytd-guide-renderer,
+    ytd-browse,
+    ytd-watch-flexy {
+        background: rgba(18, 18, 18, 0.1) !important;
+        border-radius: 8px;
+        z-index: 1 !important;
+    }
+
+    /* --- CRITICAL: Don't modify the video player structure --- */
+    #movie_player,
+    .html5-video-container,
+    .html5-main-video,
+    #player-container-inner,
+    #player-container-outer,
+    #player,
+    video {
+        transform: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+        background: transparent !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+        position: relative !important;
+    }
+
+    /* --- Video player container styling --- */
+    #player.ytd-watch-flexy {
+        background: rgba(0, 0, 0, 0.4) !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        box-shadow: 0px 5px 15px rgba(52, 5, 93, .7) !important;
+    }
+
+    /* --- Fix for thumbnail items --- */
+    ytd-thumbnail {
+        margin: 4px !important;
+        overflow: hidden !important;
+        border-radius: 8px !important;
+        box-shadow: 0px 3px 8px rgba(54, 3, 69, .67) !important;
+        background: rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* --- Ensure thumbnails fill their container --- */
+    ytd-thumbnail #thumbnail.ytd-thumbnail {
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        border-radius: 0 !important;
+    }
+
+    /* --- Hover effect only on thumbnail containers --- */
+    ytd-thumbnail:hover {
+        background: rgba(0, 0, 0, 0.15) !important;
+        box-shadow: 0px 5px 10px rgba(54, 2, 139, .7) !important;
+        transform: scale(1.02) !important;
+    }
+
+    /* --- Reset all item renderers --- */
+    ytd-rich-item-renderer,
+    ytd-grid-video-renderer,
+    ytd-compact-video-renderer,
+    ytd-video-renderer,
+    ytd-rich-grid-row,
+    ytd-rich-grid-renderer {
+        transform: none !important;
+        background: transparent !important;
+        overflow: visible !important;
+        margin: 0 !important;
+    }
+
+    /* --- Fix for video title containers --- */
+    #video-title {
+        margin-top: 4px !important;
+        margin-bottom: 4px !important;
+        width: auto !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* --- Sidebar & Navbar Transparan --- */
+    ytd-mini-guide-renderer,
+    ytd-topbar-menu-button-renderer {
+        background: rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 8px;
+        z-index: 2 !important;
+    }
+
+    /* --- Efek Hover Sidebar agar Lebih 3D --- */
+    ytd-mini-guide-renderer:hover,
+    ytd-topbar-menu-button-renderer:hover {
+        transform: scale(1.02);
+        box-shadow: 0px 5px 10px rgba(44, 0, 96, .6);
+    }
+
+    /* --- Font Futuristik untuk Konsistensi --- */
+    * {
+        font-family: 'Orbitron', sans-serif !important;
+        text-shadow: 0px 1px 2px rgba(0, 102, 204, 0.4);
+    }
+
+    /* --- Search Box & Input Lebih Minimalis --- */
+    input,
+    textarea {
+        background: rgba(34, 34, 34, 0.1) !important;
+        border: 1px solid #444 !important;
+        color: #E5E5E5 !important;
+        padding: 6px;
+        border-radius: 5px;
+        box-shadow: inset 0px 2px 4px rgba(255, 255, 255, 0.05);
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #2e1260 !important;
+        outline: none;
+        box-shadow: 0px 0px 8px rgba(53, 21, 126, .7);
+    }
+
+    /* --- Video controls visibility --- */
+    .ytp-chrome-bottom {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* --- Recommended videos section --- */
+    ytd-watch-next-secondary-results-renderer {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    /* --- Fix for comments section --- */
+    ytd-comments {
+        background: rgba(0, 0, 0, 0.1) !important;
+        border-radius: 8px !important;
+        margin-top: 16px !important;
+        padding: 8px !important;
+        overflow: hidden !important;
+    }
+}
